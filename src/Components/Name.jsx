@@ -14,18 +14,21 @@ const Name = () => {
 
             setBooks([...books, newButton])
             setOpenInput(prev => !prev)
+            setBookName('')
         }
     }
     return (
         <>
-            <Button onClick={() => setOpenInput(prev => !prev)} variant='subtle' color='blue'  leftIcon={<FaPlus size={18}/>} fullWidth>ADD NEW BOOK</Button>
-            <br />
-            {openInput &&
+            {openInput ?
                 <Input
                  variant='filled'
                  onChange={(e) => setBookName(e.target.value.trim())}
                  onKeyDown={handleChange}
+                 placeholder='name of your book and press enter'
                  />
+                 :
+                 <Button onClick={() => setOpenInput(prev => !prev)} variant='subtle' color='blue'  leftIcon={<FaPlus size={18}/>} fullWidth>ADD NEW BOOK</Button>
+
             }
             <br />
             <Button leftIcon={<FaUser />} color='green' variant='outline' fullWidth >Pull Request</Button>
