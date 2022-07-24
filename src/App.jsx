@@ -10,16 +10,20 @@ import {
   useMantineTheme,
   useMantineColorScheme,
   ActionIcon,
-  Grid
+  ScrollArea
 } from '@mantine/core';
 
 import { FaSun, FaMoon } from 'react-icons/fa'
+import { Name } from './Components/Name';
 
 const App = () => {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
+
+  const date = new Date()
+  const year = date.getFullYear()
   return (
     <AppShell
       styles={{
@@ -32,13 +36,18 @@ const App = () => {
       fixed
       navbar={
         <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-          <Text>Application navbar</Text>
+         <Navbar.Section grow component={ScrollArea} mx="-xs" px="xs">
+          <Name/>
+        </Navbar.Section>
+
         </Navbar>
       }
 
       footer={
         <Footer height={60} p="md">
-          Application footer
+
+
+          © Clearbook {year}. All rights reserved. 💓
         </Footer>
       }
       header={
@@ -54,12 +63,12 @@ const App = () => {
               />
             </MediaQuery>
 
-            <div style={{width:'100%'}}>
-            <Text
-              size='xl'
-              weight="bold">
-              CLEAR BOOK
-            </Text>
+            <div style={{ width: '100%' }}>
+              <Text
+                size='xl'
+                weight="bold">
+                CLEAR BOOK
+              </Text>
             </div>
 
 
@@ -72,7 +81,7 @@ const App = () => {
 
             >
 
-              {dark ? <FaSun  size={20} /> : <FaMoon size={20} />}
+              {dark ? <FaSun size={20} /> : <FaMoon size={20} />}
 
             </ActionIcon>
 
