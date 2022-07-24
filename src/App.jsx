@@ -4,16 +4,22 @@ import {
   Navbar,
   Header,
   Footer,
-  Aside,
   Text,
   MediaQuery,
   Burger,
   useMantineTheme,
+  useMantineColorScheme,
+  ActionIcon,
+  Grid
 } from '@mantine/core';
 
-export default function App() {
+import { FaSun, FaMoon } from 'react-icons/fa'
+
+const App = () => {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+  const dark = colorScheme === 'dark'
   return (
     <AppShell
       styles={{
@@ -48,16 +54,41 @@ export default function App() {
               />
             </MediaQuery>
 
+            <div style={{width:'100%'}}>
             <Text
-              size='lg'
+              size='xl'
               weight="bold">
-              Clear Book
+              CLEAR BOOK
             </Text>
+            </div>
+
+
+            <ActionIcon
+              variant="filled"
+              size='lg'
+              color={dark ? 'blue' : 'blue'}
+              onClick={() => toggleColorScheme()}
+              title="Toggle color scheme"
+
+            >
+
+              {dark ? <FaSun  size={20} /> : <FaMoon size={20} />}
+
+            </ActionIcon>
+
+
+
           </div>
+
+
         </Header>
       }
     >
       <Text>Resize app to see responsive navbar in action</Text>
+
+
     </AppShell>
   );
 }
+
+export { App }
