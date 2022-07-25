@@ -1,6 +1,7 @@
 import { MantineProvider, ColorSchemeProvider,  } from '@mantine/core';
 import {App} from './App';
 import {useLocalStorage} from '@mantine/hooks'
+import { Login } from './Login/Login';
 const Theme = () => {
     const [colorScheme, setColorScheme] = useLocalStorage({
         key:'mantine-color-scheme',
@@ -12,7 +13,7 @@ const Theme = () => {
     return(
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
-          <App/>
+          <Login/>
         </MantineProvider>
       </ColorSchemeProvider>
     )
