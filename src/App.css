@@ -1,0 +1,47 @@
+body{
+    overflow: hidden;
+}
+.Home{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+}
+.welcome-text{
+    text-align: center;
+}
+.welcome-text h1{
+    font-size: 3rem;
+}
+.welcome-text p{
+    font-size: 1.4rem;
+    margin-top: -1rem;
+    font-weight: 600;
+}
+.company-name{
+    border: 3px solid rgb(24, 255, 113);
+    padding: 0.5rem;
+    border-radius: 8px;
+    color: aqua;
+    animation: company 1s linear 1s infinite forwards
+}
+.btn{
+    width: 85vmin;
+    height: 40px;
+}
+@keyframes company{
+    0%{
+        color: rgb(255, 36, 251);
+    }
+    33%{
+        color: rgb(179, 255, 203);
+    }
+    66%{
+        color: beige;
+    }
+    100%{
+        color: aqua;
+    }
+}
