@@ -31,6 +31,24 @@ body{
     width: 85vmin;
     height: 40px;
 }
+.user-details{
+    display: flex;
+    align-items: center;
+    line-height: 0.2;
+    gap: 0.5rem;
+    width: 104%;
+    padding-left: 0.3rem;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+.user-details img{
+    height: 50px;
+    border-radius: 10px;
+    width: 50px;
+}
+.user-details:hover{
+    border: 2px solid rgb(27, 255, 168);
+}
 @keyframes company{
     0%{
         color: rgb(255, 36, 251);
