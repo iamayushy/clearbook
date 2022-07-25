@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   AppShell,
   Navbar,
@@ -10,18 +10,25 @@ import {
   useMantineTheme,
   useMantineColorScheme,
   ActionIcon,
-  ScrollArea
+  ScrollArea,
+  Menu
 } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+
+import { Trash } from 'tabler-icons-react';
 
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { Name } from './Components/Name';
+import { AuthContext } from './Context/AuthContext';
+import { UserButton } from './Components/UserButton';
 
 const App = () => {
+  const [open, handlers] = useDisclosure(false)
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
   const dark = colorScheme === 'dark'
-
+  const { userDetails, handleLogout } = useContext(AuthContext)
   const date = new Date()
   const year = date.getFullYear()
   return (
@@ -35,18 +42,34 @@ const App = () => {
       asideOffsetBreakpoint="sm"
       fixed
       navbar={
-        <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-         <Navbar.Section grow component={ScrollArea} mx="-xs" px="xs">
-          <Name/>
-        </Navbar.Section>
+        <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 320 }}>
+          <Navbar.Section grow component={ScrollArea} mx="-xs" px="xs">
+            <Name />
+          </Navbar.Section>
+          <Navbar.Section>
 
+            <Menu
+            opened={open}
+            onOpen={handlers.open}
+            onClose={handlers.close}
+            position="top"
+            control={
+              <UserButton
+              name={userDetails.name}
+              email = {userDetails.email}
+              image = {userDetails.image}
+              />
+            }
+            >
+            <Menu.Item onClick={() => handleLogout()} color="red" icon={<Trash size={14} />}>Logout</Menu.Item>
+
+            </Menu>
+          </Navbar.Section>
         </Navbar>
       }
 
       footer={
         <Footer height={60} p="md">
-
-
           © Clearbook {year}. All rights reserved. 💓
         </Footer>
       }
