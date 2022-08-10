@@ -70,7 +70,7 @@ const App = () => {
 
       footer={
         <Footer height={60} p="md">
-          © Clearbook {year}. All rights reserved. 💓
+          © Clearbook ♥️ {year}. All rights reserved. 💓
         </Footer>
       }
       header={
