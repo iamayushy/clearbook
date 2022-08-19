@@ -15,12 +15,13 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
-import { Trash } from 'tabler-icons-react';
+import { SortAscending, Trash } from 'tabler-icons-react';
 
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { Name } from './Components/Name';
 import { AuthContext } from './Context/AuthContext';
 import { UserButton } from './Components/UserButton';
+import { SortingList } from './Components/SortingList';
 
 const App = () => {
   const [open, handlers] = useDisclosure(false)
@@ -116,7 +117,7 @@ const App = () => {
         </Header>
       }
     >
-      <Text>Resize app to see responsive navbar in action</Text>
+        <SortingList/>
 
 
     </AppShell>

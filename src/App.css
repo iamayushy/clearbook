@@ -49,6 +49,11 @@ body{
 .user-details:hover{
     border: 2px solid rgb(27, 255, 168);
 }
+.sorting-badges{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr);
+}
+
 @keyframes company{
     0%{
         color: rgb(255, 36, 251);
