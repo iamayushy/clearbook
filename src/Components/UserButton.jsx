@@ -40,22 +40,3 @@ const UserButton = forwardRef(
   )
 );
 export {UserButton}
-// function Demo() {
-//   return (
-//     <Group position="center">
-//       <Menu
-//         withArrow
-//         placement="center"
-//         control={
-//           <UserButton
-//             image={image}
-//             name={name}
-//             email={email}
-//           />
-//         }
-//       >
-//         {/* ...menu items */}
-//       </Menu>
-//     </Group>
-//   );
-
